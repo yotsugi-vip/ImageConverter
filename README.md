@@ -1,8 +1,8 @@
 # ImageConverter
 
-簡素な画像変換器
-OS: Windows
-framework: .Net Framework 4.7.2
+簡素な画像変換器  
+OS: Windows  
+framework: .Net Framework 4.7.2  
   
 <img src="demo.gif">
 

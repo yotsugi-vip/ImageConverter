@@ -8,7 +8,7 @@ namespace test
 {
     public partial class Form1 : Form
     {
-        private ImageFormat[] ImageFmt =
+        private readonly ImageFormat[] ImageFmt =
         {
             ImageFormat.Jpeg,
             ImageFormat.Png,
@@ -66,13 +66,13 @@ namespace test
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!this.checkBox1.Checked)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.FileName = Path.GetFileNameWithoutExtension(this.BasePath);
-                sfd.DefaultExt = this.comboBox1.SelectedItem.ToString();
+                sfd.DefaultExt = this.comboBox1.SelectedItem.ToString().ToLower();
                 sfd.InitialDirectory = Path.GetDirectoryName(this.BasePath);
                 sfd.Filter = "JEPGファイル|*.jpg;*.jpeg|PNGファイル|*.png|GIFファイル|*.gif|BMPファイル|*.bmp";
                 sfd.Title = "名前を付けて保存";
@@ -85,7 +85,7 @@ namespace test
             }
             else 
             {
-                string path = Path.Combine(Path.GetDirectoryName(this.BasePath), Path.GetFileNameWithoutExtension(this.BasePath)) + "." + this.comboBox1.SelectedItem.ToString();
+                string path = Path.Combine(Path.GetDirectoryName(this.BasePath), Path.GetFileNameWithoutExtension(this.BasePath)) + "." + this.comboBox1.SelectedItem.ToString().ToLower();
                 this.pictureBox1.Image.Save(path, (ImageFormat)this.comboBox1.SelectedItem);
             }
         }
